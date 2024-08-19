@@ -1,0 +1,112 @@
+.tmr-code-editor {
+  position: relative;
+}
+.tmr-code-editor-list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  margin: 8px 0 0 0;
+  padding: 0px;
+  max-height: 40vh;
+  max-width: 100%;
+  overflow: auto;
+  background-color: white;
+  border: 8px solid white;
+  box-shadow: 0 5px 8px rgba(0, 0, 0, 0.15);
+}
+.tmr-code-editor-list-hidden {
+  display: none;
+}
+.tmr-code-editor p {
+  margin: 0;
+  line-height: 1;
+}
+details.tmr-code-editor-node > details.tmr-code-editor-node {
+  padding-left: 12px;
+}
+details.tmr-code-editor-node > .tmr-code-editor-node {
+  padding-left: 8px;
+}
+details.tmr-code-editor-node > summary {
+  cursor: pointer;
+  margin-bottom: 5px;
+}
+div.tmr-code-editor-node {
+  display: flex;
+  align-items: flex-start;
+  gap: 2px;
+  margin-bottom: 5px;
+}
+div.tmr-code-editor-node input[type="checkbox"] {
+  cursor: pointer;
+  margin: 4px 2px 0 0;
+}
+.tmr-code-editor-node-label {
+  -webkit-user-select: none;
+  user-select: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding-bottom: 1px;
+}
+
+details.tmr-code-editor-node > summary > div.tmr-code-editor-node-label {
+  width: calc(100% - 18px);
+}
+
+.tmr-code-editor-node input[type="checkbox"]:disabled {
+  cursor: not-allowed;
+}
+.tmr-code-editor-tags {
+  min-height: 48px;
+  max-height: 200px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  overflow-y: scroll;
+  background-color: white;
+  border-radius: 2px;
+  border: 1px solid #d9d9d9;
+  padding: 5px;
+}
+.tmr-code-editor-tag {
+  height: fit-content;
+  display: inline-flex;
+  gap: 2px;
+  align-items: center;
+  padding: 2px 0 2px 2px;
+  background-color: #f4f4f4;
+  border: 1px solid #e9e9e9;
+  border-radius: 2px;
+}
+.tmr-code-editor-tag-label {
+  cursor: grab;
+  -webkit-user-select: none;
+  user-select: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding-bottom: 1px;
+}
+.tmr-code-editor-tag-close {
+  cursor: pointer;
+  height: 14px;
+  width: 14px;
+  border: 0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #a0a0a0;
+  background-color: transparent;
+  -webkit-user-select: none;
+  user-select: none;
+}
+.tmr-code-editor-search {
+  border: 0;
+  outline: 0;
+  height: 22px;
+}

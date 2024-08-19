@@ -1,0 +1,42 @@
+{
+  "name": "tmr-code-editor",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "types": "./types/index.d.ts",
+  "main": "./dist/code-editor.umd.js",
+  "module": "./dist/code-editor.es.js",
+  "scripts": {
+    "dev": "NODE_ENV=development vite",
+    "build": "tsc -b && NODE_ENV=production vite build",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@codemirror/lang-json": "^6.0.1",
+    "@codemirror/lang-sql": "^6.7.0",
+    "@uiw/codemirror-theme-github": "^4.23.0",
+    "@uiw/react-codemirror": "^4.23.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.1.0",
+    "@types/prop-types": "^15.7.12",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@typescript-eslint/eslint-plugin": "^7.15.0",
+    "@typescript-eslint/parser": "^7.15.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "autoprefixer": "^10.4.20",
+    "cssnano": "^7.0.4",
+    "eslint": "^8.57.0",
+    "eslint-plugin-react-hooks": "^4.6.2",
+    "eslint-plugin-react-refresh": "^0.4.7",
+    "postcss": "^8.4.40",
+    "prop-types": "^15.8.1",
+    "terser": "^5.31.3",
+    "typescript": "^5.5.4",
+    "vite": "^5.3.4"
+  }
+}
