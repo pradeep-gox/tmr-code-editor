@@ -1,8 +1,13 @@
-import ReactCodeMirror from "@uiw/react-codemirror";
-import { githubDark } from "@uiw/codemirror-theme-github";
-import { json } from "@codemirror/lang-json";
-import { sql, MySQL, PostgreSQL } from "@codemirror/lang-sql";
 import { useEffect, useState } from "react";
+
+import ReactAce from "react-ace";
+
+import "ace-builds/src-noconflict/mode-json";
+import "ace-builds/src-noconflict/mode-sql";
+import "ace-builds/src-noconflict/mode-mysql";
+import "ace-builds/src-noconflict/mode-pgsql";
+import "ace-builds/src-noconflict/mode-graphqlschema";
+import "ace-builds/src-noconflict/theme-github_dark";
 
 const TMRCodeEditor = ({
   mode,
@@ -10,12 +15,14 @@ const TMRCodeEditor = ({
   value: propValue,
   onChange,
   placeholder,
+  fontSize,
 }: {
-  mode?: "json" | "mysql" | "psql";
+  mode?: "json" | "mysql" | "psql" | "graphql";
   height?: string;
   value?: string;
   onChange?: (value: string) => void;
   placeholder?: string;
+  fontSize?: string | number;
 }) => {
   const isControlled = propValue !== undefined;
   const [value, setValue] = useState("");
@@ -36,49 +43,68 @@ const TMRCodeEditor = ({
 
   if (mode === "json") {
     return (
-      <ReactCodeMirror
+      <ReactAce
+        height={height || "250px"}
+        theme="github_dark"
+        mode="json"
         value={value}
         onChange={onUpdate}
-        height={height || "250px"}
-        theme={githubDark}
-        extensions={[json()]}
         placeholder={placeholder}
+        fontSize={fontSize || "14px"}
       />
     );
   }
 
   if (mode === "mysql") {
     return (
-      <ReactCodeMirror
+      <ReactAce
+        height={height || "250px"}
+        theme="github_dark"
+        mode="mysql"
         value={value}
         onChange={onUpdate}
-        height={height || "250px"}
-        theme={githubDark}
-        extensions={[sql({ dialect: MySQL })]}
         placeholder={placeholder}
+        fontSize={fontSize || "14px"}
       />
     );
   }
 
   if (mode === "psql") {
     return (
-      <ReactCodeMirror
+      <ReactAce
+        height={height || "250px"}
+        theme="github_dark"
+        mode="pgsql"
         value={value}
         onChange={onUpdate}
-        height={height || "250px"}
-        theme={githubDark}
-        extensions={[sql({ dialect: PostgreSQL })]}
         placeholder={placeholder}
+        fontSize={fontSize || "14px"}
       />
     );
   }
+
+  if (mode === "graphql") {
+    return (
+      <ReactAce
+        height={height || "250px"}
+        theme="github_dark"
+        mode="graphqlschema"
+        value={value}
+        onChange={onUpdate}
+        placeholder={placeholder}
+        fontSize={fontSize || "14px"}
+      />
+    );
+  }
+
   return (
-    <ReactCodeMirror
+    <ReactAce
+      height={height || "250px"}
+      theme="github_dark"
       value={value}
       onChange={onUpdate}
-      height={height || "250px"}
-      theme={githubDark}
       placeholder={placeholder}
+      fontSize={fontSize || "14px"}
     />
   );
 };
